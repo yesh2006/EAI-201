@@ -1,0 +1,75 @@
+class VacuumCleaner:
+    def __init__(self, shape):
+        self.shape = shape
+        self.is_on = False
+        self.position = (0, 0)
+        self.direction = "up"
+
+    def command(self, action):
+        if action == "start":
+            self.is_on = True
+            print(f"{self.shape} Vacuum Cleaner started!")
+        elif action == "stop":
+            self.is_on = False
+            print(f"{self.shape} Vacuum Cleaner stopped.")
+        elif action == "left":
+            if self.is_on:
+                self.direction = "left"
+                print(f"{self.shape} Vacuum Cleaner turned left.")
+        elif action == "right":
+            if self.is_on:
+                self.direction = "right"
+                print(f"{self.shape} Vacuum Cleaner turned right.")
+        elif action == "dock":
+            self.is_on = False
+            print(f"{self.shape} Vacuum Cleaner is docking to recharge...")
+        else:
+            print("Invalid command!")
+class CircleVacuum(VacuumCleaner):
+    
+    def __init__(self):
+        super().__init__("Circle")
+
+    def advantage(self):
+        return "Smooth circular design helps it move easily around obstacles and furniture."
+
+class SquareVacuum(VacuumCleaner):
+    def __init__(self):
+        super().__init__("Square")
+
+    def advantage(self):
+        return "Square shape is better for cleaning corners and edges of rooms."
+
+class TriangleVacuum(VacuumCleaner):
+    def __init__(self):
+        super().__init__("Triangle")
+
+    def advantage(self):
+        return "Triangle design allows it to reach sharp corners easily."
+
+class HexagonVacuum(VacuumCleaner):
+    def __init__(self):
+        super().__init__("Hexagon")
+
+    def advantage(self):
+        return "Hexagon shape gives stability and can cover more area per sweep."
+
+
+if __name__ == "__main__":
+    cleaners = [CircleVacuum(), SquareVacuum(), TriangleVacuum(), HexagonVacuum()]
+
+    for cleaner in cleaners:
+        print("\n--- Testing", cleaner.shape, "Vacuum Cleaner ---")
+        print("Advantage:", cleaner.advantage())
+        cleaner.command("start")
+        cleaner.command("left")
+        cleaner.command("right")
+        cleaner.command("dock")
+        cleaner.command("stop")
+
+    
+    print("\nConclusion:")
+    print("Circle vacuum is best for smooth navigation around obstacles.")
+    print("Square and Triangle vacuums are best for corners.")
+    print("Hexagon vacuum covers larger area per sweep.")
+    print(" Overall, the Circle Vacuum is the most practical for everyday home use.")
