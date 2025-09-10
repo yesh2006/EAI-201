@@ -1,13 +1,27 @@
+import csv  
 def grade_student():
     print("Welcome to the Student Grading Assistant")
     name = input("Enter Student Name: ")
-    num_subjects = int(input("Enter number of subjects: "))
-
+    try:
+        num_subjects = int(input("Enter number of subjects: "))
+        if num_subjects <= 0:
+            print("Number of subjects must be greater than zero.")
+            return
+    except ValueError:
+        print("Invalid number. Please enter a valid integer.")
+        return
     subjects = {}
     total = 0
     for i in range(num_subjects):
         subject = input(f"Enter subject {i+1} name: ")
-        marks = float(input(f"Enter marks in {subject} (out of 100): "))
+        try:
+            marks = float(input(f"Enter marks in {subject} (out of 100): "))
+            if marks < 0 or marks > 100:
+                print("Marks should be between 0 and 100. Try again.")
+                return
+        except ValueError:
+            print("Invalid marks. Please enter a number.")
+            return
         subjects[subject] = marks
         total += marks
     average = total / num_subjects
@@ -28,7 +42,7 @@ def grade_student():
         remark = "Work harder next time."
     highest_subject = max(subjects, key=subjects.get)
     lowest_subject = min(subjects, key=subjects.get)
-    print("\nStudent Report")
+    print("\n--- Student Report ---")
     print(f"Name: {name}")
     for sub, mark in subjects.items():
         print(f"{sub}: {mark}")
@@ -37,9 +51,11 @@ def grade_student():
     print(f"Remarks: {remark}")
     print(f"Best Subject: {highest_subject} ({subjects[highest_subject]})")
     print(f"Weakest Subject: {lowest_subject} ({subjects[lowest_subject]})")
-    with open("student_report.csv", "a", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow([name, average, grade, remark, highest_subject, lowest_subject])
-
-    print("\nReport saved to 'student_report.csv'")
+    try:
+        with open("student_report.csv", "a", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow([name, average, grade, remark, highest_subject, lowest_subject])
+        print("\n✅ Report saved to 'student_report.csv'")
+    except Exception as e:
+        print(f"\n❌ Failed to save report: {e}")
 grade_student()
