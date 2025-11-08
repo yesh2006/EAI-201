@@ -1,0 +1,49 @@
+Date,Stage,Home Team,Away Team,Home Goals,Away Goals,Winner,Loser,Result
+2022-11-20,Group A,Qatar,Ecuador,0,2,Ecuador,Qatar,Loss
+2022-11-21,Group B,England,Iran,6,2,England,Iran,Win
+2022-11-21,Group A,Senegal,Netherlands,0,2,Netherlands,Senegal,Win
+2022-11-21,Group B,Usa,Wales,1,1,Draw,Draw,Draw
+2022-11-22,Group C,Argentina,Saudi Arabia,1,2,Saudi Arabia,Argentina,Loss
+2022-11-22,Group D,Denmark,Tunisia,0,0,Draw,Draw,Draw
+2022-11-22,Group D,France,Australia,4,1,France,Australia,Win
+2022-11-23,Group C,Mexico,Poland,0,0,Draw,Draw,Draw
+2022-11-23,Group F,Morocco,Croatia,0,0,Draw,Draw,Draw
+2022-11-23,Group E,Germany,Japan,1,2,Japan,Germany,Loss
+2022-11-23,Group E,Spain,Costa Rica,7,0,Spain,Costa Rica,Win
+2022-11-23,Group F,Belgium,Canada,1,0,Belgium,Canada,Win
+2022-11-24,Group G,Switzerland,Cameroon,1,0,Switzerland,Cameroon,Win
+2022-11-24,Group H,Uruguay,South Korea,0,0,Draw,Draw,Draw
+2022-11-24,Group H,Portugal,Ghana,3,2,Portugal,Ghana,Win
+2022-11-24,Group G,Brazil,Serbia,2,0,Brazil,Serbia,Win
+2022-11-25,Group A,Netherlands,Ecuador,1,1,Draw,Draw,Draw
+2022-11-25,Group B,Wales,Iran,0,2,Iran,Wales,Loss
+2022-11-25,Group A,Qatar,Senegal,1,3,Senegal,Qatar,Win
+2022-11-25,Group B,England,Usa,0,0,Draw,Draw,Draw
+2022-11-26,Group D,Tunisia,Australia,0,1,Australia,Tunisia,Win
+2022-11-26,Group C,Poland,Saudi Arabia,2,0,Poland,Saudi Arabia,Win
+2022-11-26,Group C,Argentina,Mexico,2,0,Argentina,Mexico,Win
+2022-11-26,Group D,France,Denmark,2,1,France,Denmark,Win
+2022-11-27,Group E,Japan,Costa Rica,0,1,Costa Rica,Japan,Loss
+2022-11-27,Group F,Belgium,Morocco,0,2,Morocco,Belgium,Win
+2022-11-27,Group E,Spain,Germany,1,1,Draw,Draw,Draw
+2022-11-27,Group F,Croatia,Canada,4,1,Croatia,Canada,Win
+2022-11-28,Group G,Cameroon,Serbia,3,3,Draw,Draw,Draw
+2022-11-28,Group H,South Korea,Ghana,2,3,Ghana,South Korea,Win
+2022-11-28,Group G,Brazil,Switzerland,1,0,Brazil,Switzerland,Win
+2022-11-28,Group H,Portugal,Uruguay,2,0,Portugal,Uruguay,Win
+2022-12-03,Round Of 16,Netherlands,Usa,3,1,Netherlands,Usa,Win
+2022-12-03,Round Of 16,Argentina,Australia,2,1,Argentina,Australia,Win
+2022-12-04,Round Of 16,France,Poland,3,1,France,Poland,Win
+2022-12-04,Round Of 16,England,Senegal,3,0,England,Senegal,Win
+2022-12-05,Round Of 16,Japan,Croatia,1,1,Croatia,Japan,Win (Penalties)
+2022-12-05,Round Of 16,Brazil,South Korea,4,1,Brazil,South Korea,Win
+2022-12-06,Round Of 16,Morocco,Spain,0,0,Morocco,Spain,Win (Penalties)
+2022-12-06,Round Of 16,Portugal,Switzerland,6,1,Portugal,Switzerland,Win
+2022-12-09,Quarterfinal,Croatia,Brazil,1,1,Croatia,Brazil,Win (Penalties)
+2022-12-09,Quarterfinal,Netherlands,Argentina,2,2,Argentina,Netherlands,Win (Penalties)
+2022-12-10,Quarterfinal,Morocco,Portugal,1,0,Morocco,Portugal,Win
+2022-12-10,Quarterfinal,England,France,1,2,France,England,Win
+2022-12-13,Semifinal,Argentina,Croatia,3,0,Argentina,Croatia,Win
+2022-12-14,Semifinal,France,Morocco,2,0,France,Morocco,Win
+2022-12-17,Third Place,Croatia,Morocco,2,1,Croatia,Morocco,Win
+2022-12-18,Final,Argentina,France,3,3,Argentina,France,Win (Penalties)
