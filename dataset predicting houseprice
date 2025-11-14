@@ -1,0 +1,27 @@
+import numpy as np
+
+X = np.array([
+    [1200, 3, 5, 10],
+    [1400, 4, 3, 3],
+    [1600, 3, 8, 20],
+    [1700, 5, 2, 15],
+    [1850, 4, 4, 7]
+])
+
+y = np.array([120, 150, 130, 180, 170])
+
+ones = np.ones((X.shape[0], 1))
+X_b = np.hstack((ones, X))
+
+theta = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)
+
+intercept = theta[0]
+coefficients = theta[1:]
+
+print("Intercept:", intercept)
+print("Coefficients:", coefficients)
+
+new_house = np.array([1, 1500, 3, 4, 5])
+
+predicted_price = new_house.dot(theta)
+print("Predicted Price:", predicted_price, "Lacs")
