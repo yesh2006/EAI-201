@@ -1,0 +1,54 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
+
+df = pd.read_csv(r"PUT_YOUR_PATH_HERE\titanic.csv")
+
+print(df.info())
+print(df.isnull().sum())
+
+sns.histplot(df["Age"].dropna())
+plt.show()
+
+sns.countplot(x="Sex", data=df)
+plt.show()
+
+sns.countplot(x="Pclass", data=df)
+plt.show()
+
+sns.histplot(df["Fare"].dropna())
+plt.show()
+
+sns.countplot(x="Embarked", data=df)
+plt.show()
+
+sns.barplot(x="Sex", y="Survived", data=df)
+plt.show()
+
+sns.barplot(x="Pclass", y="Survived", data=df)
+plt.show()
+
+df["Age"].fillna(df["Age"].median(), inplace=True)
+df["Embarked"].fillna(df["Embarked"].mode()[0], inplace=True)
+df["Fare"].fillna(df["Fare"].median(), inplace=True)
+
+df["Title"] = df["Name"].str.extract(r' ([A-Za-z]+)\.')
+
+df.drop(["PassengerId", "Name", "Ticket", "Cabin"], axis=1, inplace=True)
+
+df["FamilySize"] = df["SibSp"] + df["Parch"]
+
+encoder = OneHotEncoder(sparse=False)
+encoded = encoder.fit_transform(df[["Sex", "Embarked", "Title"]])
+encoded_df = pd.DataFrame(encoded, columns=encoder.get_feature_names_out(["Sex", "Embarked", "Title"]))
+df = pd.concat([df.drop(["Sex", "Embarked", "Title"], axis=1), encoded_df], axis=1)
+
+X = df.drop("Survived", axis=1)
+y = df["Survived"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+print(X_train.shape, X_test.shape)
