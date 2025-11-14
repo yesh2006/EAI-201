@@ -1,0 +1,37 @@
+import numpy as np
+import pandas as pd
+
+study_hours = np.array([2, 4, 6, 8, 10])
+labels = np.array([0, 0, 1, 1, 1])
+
+unique_vals = np.unique(study_hours)
+split_points = [(unique_vals[i] + unique_vals[i+1]) / 2 for i in range(len(unique_vals)-1)]
+
+def gini(y):
+    if len(y) == 0:
+        return 0
+    p1 = np.mean(y == 1)
+    p0 = 1 - p1
+    return 1 - (p1**2 + p0**2)
+
+def evaluate_split(split):
+    left = labels[study_hours <= split]
+    right = labels[study_hours > split]
+    gini_left = gini(left)
+    gini_right = gini(right)
+    total = len(labels)
+    weighted_gini = (len(left) / total) * gini_left + (len(right) / total) * gini_right
+    return weighted_gini, gini_left, gini_right
+
+results = []
+
+for s in split_points:
+    weighted, gl, gr = evaluate_split(s)
+    results.append([s, weighted, gl, gr])
+
+df = pd.DataFrame(results, columns=["Split Point", "Weighted Gini", "Left Gini", "Right Gini"])
+print(df)
+
+best = df.loc[df["Weighted Gini"].idxmin()]
+print("\nBest Split:")
+print(best)
