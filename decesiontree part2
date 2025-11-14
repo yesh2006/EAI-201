@@ -1,0 +1,43 @@
+data = [
+    (2, 0),
+    (4, 0),
+    (6, 1),
+    (8, 1),
+    (10, 1)
+]
+
+def gini(groups):
+    total = sum(len(group) for group in groups)
+    score = 0.0
+    for group in groups:
+        size = len(group)
+        if size == 0:
+            continue
+        count_1 = sum(row[1] == 1 for row in group)
+        count_0 = sum(row[1] == 0 for row in group)
+        p1 = count_1 / size
+        p0 = count_0 / size
+        score += (size / total) * (1 - p1 ** 2 - p0 ** 2)
+    return score
+
+best_gini = 1
+best_split = None
+best_groups = None
+for split_val in [3, 5, 7, 9]:
+    left = [row for row in data if row[0] <= split_val]
+    right = [row for row in data if row[0] > split_val]
+    impurity = gini([left, right])
+    print(f"Split at {split_val}: Gini impurity = {impurity:.3f}")
+    if impurity < best_gini:
+        best_gini = impurity
+        best_split = split_val
+        best_groups = (left, right)
+
+print(f"\nBest split is at Study Hours <= {best_split}")
+print("Left group:", best_groups[0])
+print("Right group:", best_groups[1])
+
+print("\nDecision tree:")
+print(f"Is Study Hours <= {best_split}?")
+print(f"  Yes: {best_groups[0]}")
+print(f"  No: {best_groups[1]}")
